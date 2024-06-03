@@ -21,6 +21,8 @@ public:
 
     double output();
 
+    double output_derivative();
+
     bool is_running();
 
 protected:
@@ -32,6 +34,7 @@ protected:
     void calc();
 
     double y = 0;
+    double dy = 0;
     double u = 0;
     Eigen::Vector2d x;
 

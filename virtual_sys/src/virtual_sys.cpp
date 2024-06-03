@@ -27,8 +27,9 @@ void VirtualSys::calc()
 {
     while (running)
     {
+        static constexpr double dt = VIRTUAL_DT / 1e6;
+        dy = (g(x, u) - y) / dt;
         y = g(x, u);
-        constexpr double dt = VIRTUAL_DT / 1e6;
         x += f(x, u) * dt;
         std::this_thread::sleep_for(std::chrono::microseconds(real_dt));
     }
@@ -42,6 +43,11 @@ void VirtualSys::input(double u)
 double VirtualSys::output()
 {
     return y;
+}
+
+double VirtualSys::output_derivative()
+{
+    return dy;
 }
 
 bool VirtualSys::is_running()
