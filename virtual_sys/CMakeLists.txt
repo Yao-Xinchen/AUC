@@ -21,6 +21,7 @@ add_executable(virtual_sys
   src/sys_node.cpp
   src/virtual_sys.cpp
   src/linear.cpp
+  src/non_linear.cpp
 )
 
 ament_target_dependencies(virtual_sys
